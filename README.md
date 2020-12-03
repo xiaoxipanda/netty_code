@@ -2,6 +2,8 @@
 
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 
+Netty version is 4.1.40.
+
 ## Links
 
 * [Web Site](https://netty.io/)
