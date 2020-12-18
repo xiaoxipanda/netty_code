@@ -27,6 +27,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.ChannelInputShutdownEvent;
 import io.netty.util.internal.StringUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -301,6 +302,17 @@ public abstract class ByteToMessageDecoder extends ChannelInboundHandlerAdapter 
                 }
 
                 int size = out.size();
+//                if (size == 0) {
+//                    decodeWasNull = true;
+//                } else if (size == 1) {
+//                    ctx.fireChannelRead(out.get(0));
+//                } else {
+//                    ArrayList<Object> ret = new ArrayList<Object>(size);
+//                    for (int i = 0; i < size; i++) {
+//                        ret.add(out.get(i));
+//                    }
+//                    ctx.fireChannelRead(ret);
+//                }
                 firedChannelRead |= out.insertSinceRecycled();
                 fireChannelRead(ctx, out, size);
                 out.recycle();
